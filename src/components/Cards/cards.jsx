@@ -13,6 +13,15 @@ const Cards = ({ data: {recovered, deaths, confirmed, lastUpdate }}) => {
     }
     return (
         <div className={cn(styles.container, styles.grow)}>
+            <Typography variant="h4" align="center" className={cn(styles.m_btm20, styles.covid_header)}>
+                Corona virus
+                </Typography>
+                <Typography variant="h4" align="center" className={cn(styles.m_btm20, styles.covid_header)}>
+                covid-19
+                </Typography>
+                <Typography variant="h4" align="center" className={cn(styles.m_btm20, styles.covid_header)}>
+                tracker
+                </Typography>
             <Grid container spacing={3} justify="center" md={16}>
                 <Grid item component={Card} xs={12} md={3} className={cn(styles.card, styles.infected)}>
                     <CardContent>

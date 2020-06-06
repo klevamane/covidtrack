@@ -19,3 +19,10 @@
 .death {
     border-bottom: 10px solid rgba(250, 0, 0, 1);
 }
+
+.m_btm20 {
+    margin-bottom: 20px !important;
+}
+.covid_header {
+    font-family: 'Monoton', cursive !important;
+}

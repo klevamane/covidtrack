@@ -1,30 +1,35 @@
 import React, { Component } from 'react'
 
 import { Cards, CountryPicker, Chart } from './components';
-import { fetchData } from './api';
+import { fetchData, countries } from './api';
 
 import styles from './App.module.css';
+import { Container } from '@material-ui/core';
 class App extends Component {
     // no need for constructor boilerplate
     state = {
-        data: {}
+        data: {},
+        country: ''
     }
 
     async componentDidMount() {
         const fetchedData = await fetchData();
-        this.setState({
-            data: fetchedData
-        })
+        this.setState({ data: fetchedData})
+    }
+
+    handleCountryChange = async (country) => {
+        const fetchedData = await fetchData(country)
+        this.setState({ data: fetchedData, country: country});
     }
     render() {
-        const { data } = this.state;
+        const { country, data } = this.state;
 
         return (
-            <div className={styles.container}>
-                <CountryPicker />
+            <Container>
                 <Cards data={data}/>
-                <Chart />
-            </div>
+                <CountryPicker handleCountryChange={this.handleCountryChange} />
+                <Chart country={country} data={data} />
+            </Container>
         )
     }
 }
