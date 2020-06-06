@@ -3,10 +3,10 @@ import { Grid, NativeSelect, FormControl } from '@material-ui/core';
 import { countries } from '../../api';
 
 import styles from './countryPicker.module.css';
+import spinner from '../spinner/spinner';
 
 
-
-const CountryPicker = ({ handleCountryChange }) => {
+const CountryPicker = ({ handleCountryChange, data: { recovered }}) => {
     const [fetchedCountries, setFetchedCountries] = useState([])
 
     useEffect(() => {
@@ -16,13 +16,14 @@ const CountryPicker = ({ handleCountryChange }) => {
         getCountries();
     },[setFetchedCountries])
     console.log({fetchedCountries})
+    const newLocal = !recovered? <spinner />: <NativeSelect defaultValue="" onChange={(e) => handleCountryChange(e.target.value)}>
+        <option value="">Global</option>
+        {fetchedCountries.map((country, index) => <option key={index} value={country}>{country}</option>)}
+    </NativeSelect> ;
     return (
         <Grid container justify="center" className={styles.mb10}>
         <FormControl>
-            <NativeSelect defaultValue="" onChange={(e) => handleCountryChange(e.target.value)}>
-                <option value="">Global</option>
-                {fetchedCountries.map((country, index) => <option key={index} value={country}>{country}</option>)}
-            </NativeSelect>
+            {newLocal}
         </FormControl> 
         </Grid>
     )
