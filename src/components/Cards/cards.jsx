@@ -9,6 +9,9 @@ import Spinner from '../spinner/spinner';
 
 const Cards = ({ data: {recovered, deaths, confirmed, lastUpdate }}) => {
     // if not one, then not all, ie recovered can check for all
+    console.log("DISPALAY CARD DATA DETAILS: ")
+    const rec = recovered;
+    console.log("DISPALAY CARD DATA RECOVERED: ", recovered)
     return (
         <div className={cn(styles.container, styles.grow)}>
             <Typography variant="h4" align="center" className={cn(styles.m_btm20, styles.covid_header)}>
@@ -25,7 +28,7 @@ const Cards = ({ data: {recovered, deaths, confirmed, lastUpdate }}) => {
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom>Infected</Typography>
                         <Typography variant="h6">
-                            <CountUp end={confirmed} duration={2} separator=","/>
+                            <CountUp end={confirmed? confirmed: ''} duration={2} separator=","/>
                         </Typography>
                         <Typography color="textSecondary">
                             <Moment fromNow>{lastUpdate}</Moment>
@@ -38,7 +41,8 @@ const Cards = ({ data: {recovered, deaths, confirmed, lastUpdate }}) => {
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom>Recovered</Typography>
                         <Typography variant="h6">
-                            <CountUp end={recovered} duration={2} separator=","/>
+                            <CountUp start={5} end={recovered?recovered:''}/>
+                            {/* <h3>{recovered}</h3> */}
                         </Typography>
                         <Typography color="textSecondary">
                             <Moment fromNow>{lastUpdate}</Moment>
@@ -51,7 +55,7 @@ const Cards = ({ data: {recovered, deaths, confirmed, lastUpdate }}) => {
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom>Deaths</Typography>
                         <Typography variant="h6">
-                            <CountUp end={deaths} duration={2} separator=","/>
+                            <CountUp end={deaths?deaths: ''} duration={2} separator=","/>
                         </Typography>
                         <Typography color="textSecondary">
                             <Moment fromNow>{lastUpdate}</Moment>
