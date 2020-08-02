@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, Grid, Typography} from '@material-ui/core';
+import { Avatar, Card, CardContent, Grid, Typography} from '@material-ui/core';
 import CountUp from 'react-countup';
 import Moment from 'react-moment';
 import cn from 'classnames';
@@ -24,6 +24,7 @@ const Cards = ({ data: {recovered, deaths, confirmed, lastUpdate }}) => {
                 <Grid item component={Card} xs={12} md={3} className={cn(styles.card, styles.infected)}>
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom>Infected</Typography>
+                        {/* <img src="https://www.countryflags.io/be/flat/:size.png"> */}
                         <Typography variant="h6">
                             <CountUp end={confirmed? confirmed: ''} duration={2} separator=","/>
                         </Typography>
@@ -31,6 +32,7 @@ const Cards = ({ data: {recovered, deaths, confirmed, lastUpdate }}) => {
                             <Moment fromNow>{lastUpdate}</Moment>
                         </Typography>
                         <Typography variant="body2">Number of covid19 cases</Typography>
+                        <Avatar alt="Remy Sharp" src="https://www.countryflags.io/be/flat/64.png" />
                     </CardContent>
                 </Grid>
 
