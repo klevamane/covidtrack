@@ -21,7 +21,7 @@
   "scripts": {
     "dev": "react-scripts start",
     "prestart": "npm run build",
-    "start": "react-scripts start",
+    "start": "node ./build/server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
