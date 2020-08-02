@@ -9,9 +9,6 @@ import Spinner from '../spinner/spinner';
 
 const Cards = ({ data: {recovered, deaths, confirmed, lastUpdate }}) => {
     // if not one, then not all, ie recovered can check for all
-    console.log("DISPALAY CARD DATA DETAILS: ")
-    const rec = recovered;
-    console.log("DISPALAY CARD DATA RECOVERED: ", recovered)
     return (
         <div className={cn(styles.container, styles.grow)}>
             <Typography variant="h4" align="center" className={cn(styles.m_btm20, styles.covid_header)}>
