@@ -2,6 +2,7 @@
 **Demo**: [covidtracka](https://covidtrack-eight.vercel.app) :school_satchel:
 > Shows details of covid 19 impact on various countries around the work
 
+![](https://res.cloudinary.com/dnrh79klc/image/upload/v1596373273/img_ak4ubs.png)
 ### Development setup
 - Clone the repository
 - npm install from your terminal or cmd
