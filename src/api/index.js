@@ -39,11 +39,16 @@ export const fetchDailyData = async () => {
         console.log(error);
     }
 }
-
+const newfunc = (country) => {
+    return {
+        name: country.name,
+        iso: country.iso2
+    }
+}
 export const countries = async () => {
     try {
         const { data: { countries }} = await axios.get(`${baseUrl}/countries`);
-        return countries.map((country) => country.name);
+        return countries.map(newfunc);
     } catch (error) {
         console.log({ error });
     }

@@ -18,7 +18,7 @@ const CountryPicker = ({ handleCountryChange, data: { recovered }}) => {
     console.log({fetchedCountries})
     const newLocal = !recovered? <spinner />: <NativeSelect defaultValue="" onChange={(e) => handleCountryChange(e.target.value)}>
         <option value="">Global</option>
-        {fetchedCountries.map((country, index) => <option key={index} value={country}>{country}</option>)}
+        {fetchedCountries.map((country, index) => <option key={index} value={country.name}>{country.name}</option>)}
     </NativeSelect> ;
     return (
         <Grid container justify="center" className={styles.mb10}>

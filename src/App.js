@@ -26,7 +26,7 @@ class App extends Component {
 
         return (
             <Container>
-                <Cards data={data}/>
+                <Cards data={data} iso2={country}/>
                 <CountryPicker handleCountryChange={this.handleCountryChange} data={data} />
                 <Chart country={country} data={data} />
             </Container>
