@@ -7,8 +7,13 @@ import cn from 'classnames';
 import styles from './cards.module.css';
 import Spinner from '../spinner/spinner';
 
-const Cards = ({ data: {recovered, deaths, confirmed, lastUpdate }}) => {
-    // if not one, then not all, ie recovered can check for all
+const Cards = ({ data: {recovered, deaths, confirmed, lastUpdate }, iso2 }) => {
+
+    let showFlag = '';
+    if(iso2) {
+        showFlag = <Avatar alt="" rounded src={`https://www.countryflags.io/${iso2}/flat/64.png`} />
+    }
+
     return (
         <div className={cn(styles.container, styles.grow)}>
             <Typography variant="h4" align="center" className={cn(styles.m_btm20, styles.covid_header)}>
@@ -32,7 +37,7 @@ const Cards = ({ data: {recovered, deaths, confirmed, lastUpdate }}) => {
                             <Moment fromNow>{lastUpdate}</Moment>
                         </Typography>
                         <Typography variant="body2">Number of covid19 cases</Typography>
-                        <Avatar alt="Remy Sharp" src="https://www.countryflags.io/be/flat/64.png" />
+                        {showFlag}
                     </CardContent>
                 </Grid>
 

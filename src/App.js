@@ -3,13 +3,15 @@ import React, { Component } from 'react'
 import { Cards, CountryPicker, Chart } from './components';
 import { fetchData, countries } from './api';
 
+
 import styles from './App.module.css';
 import { Container } from '@material-ui/core';
 class App extends Component {
     // no need for constructor boilerplate
     state = {
         data: {},
-        country: ''
+        country: '',
+        countryIso: ''
     }
 
     async componentDidMount() {
@@ -17,16 +19,21 @@ class App extends Component {
         this.setState({ data: fetchedData})
     }
 
-    handleCountryChange = async (country) => {
+    handleCountryChange = async (country, iso2) => {
         const fetchedData = await fetchData(country)
-        this.setState({ data: fetchedData, country: country});
+        const allCountries = await countries();
+        const filtered = allCountries.filter((c) => c.name == country)
+        this.setState({ data: fetchedData, country: country, countryIso: filtered[0]?filtered[0].iso:''});
+        console.log("THE Current ohhh ",this.state.countryIso )
+        console.log("THE Filtered ",filtered[0] )
+
     }
     render() {
-        const { country, data } = this.state;
+        const { country, data, countryIso } = this.state;
 
         return (
             <Container>
-                <Cards data={data} iso2={country}/>
+                <Cards data={data} iso2={countryIso}/>
                 <CountryPicker handleCountryChange={this.handleCountryChange} data={data} />
                 <Chart country={country} data={data} />
             </Container>
