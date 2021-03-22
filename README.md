@@ -1,7 +1,7 @@
 # Covid Reporter 
 An application showing information of the current covid-19 data for various countries around the world
 
-**Demo**: [covidtracka](https://covidtrack-eight.vercel.app) :school_satchel:
+**Live Demo**: [covidtracka](https://covidtrack-eight.vercel.app) :school_satchel:
 > Shows details of covid 19 impact on various countries around the work
 
 ![](https://res.cloudinary.com/dnrh79klc/image/upload/v1596373273/img_ak4ubs.png)
