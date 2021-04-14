@@ -24,8 +24,6 @@ class App extends Component {
         const allCountries = await countries();
         const filtered = allCountries.filter((c) => c.name == country)
         this.setState({ data: fetchedData, country: country, countryIso: filtered[0]?filtered[0].iso:''});
-        console.log("THE Current ohhh ",this.state.countryIso )
-        console.log("THE Filtered ",filtered[0] )
 
     }
     render() {
